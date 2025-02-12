@@ -1,0 +1,11 @@
+* {
+  font-family: 'Roboto', sans-serif;
+
+}
+
+body {
+  background-color: #2d3436;
+  color: white;
+  min-height: 100vh;
+  padding: 0px;
+}
