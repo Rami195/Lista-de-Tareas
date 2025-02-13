@@ -8,9 +8,7 @@ const TaskList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:4000/task/${id}`, {
-        method: 'DELETE',
-      });
+      await fetch(`${import.meta.env.VITE_API_URL}/task/${id}`, { method: 'DELETE' });
       setTasks(tasks.filter(task => task.id !== id));
     } catch (error) {
       console.log(error);
@@ -18,7 +16,7 @@ const TaskList = () => {
   };
 
   const loadTasks = async () => {
-    const response = await fetch('http://localhost:4000/task');
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/task`);
     const data = await response.json();
     setTasks(data);
   };
