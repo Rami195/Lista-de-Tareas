@@ -35,7 +35,7 @@ const TaskList = () => {
               {task.image_url && (
                 <CardMedia
                   component="img"
-                  image={`http://localhost:4000${task.image_url}`}
+                  image={`${import.meta.env.VITE_API_URL}${task.image_url}`}
                   alt={task.title}
                   style={{ height: '200px', objectFit: 'cover' }}
                 />
