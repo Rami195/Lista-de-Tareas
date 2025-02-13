@@ -23,7 +23,7 @@ const TaskForm = () => {
   };
 
   const loadTasks = async (id) => {
-    const res = await fetch(`http://localhost:4000/task/${id}`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/task/${id}`);
     const data = await res.json();
     setTask({ title: data.title, description: data.description, image: null });
     setEditing(true);
@@ -46,11 +46,10 @@ const TaskForm = () => {
       formData.append('image', task.image);
     }
 
-    const response = await fetch(`http://localhost:4000/task${editing ? `/${params.id}` : ''}`, {
-      method: editing ? 'PUT' : 'POST',
-      body: formData,
-    });
-
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/task${editing ? `/${params.id}` : ''}`, {
+  method: editing ? 'PUT' : 'POST',
+  body: formData,
+});
     const data = await response.json();
     console.log(data);
     setLoading(false);
